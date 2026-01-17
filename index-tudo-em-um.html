@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubra a voz que sabota sua vida — e faça ela calar.">
+  <title>O Impostor Dentro de Você - Ebook Vivo</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+/* ==================== RESET & BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==================== PARALLAX BACKGROUND ==================== */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/capa-ebook.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.parallax-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, 
+    rgba(0,0,0,0.3) 0%,
+    rgba(0,0,0,0.7) 50%,
+    rgba(0,0,0,0.95) 100%);
+  z-index: 1;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+.hero-title,
+.section-title,
+.section-subtitle,
+.giants-title,
+.signup-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+/* ==================== UTILITIES ==================== */
+.highlight {
+  color: #FFA500;
+  font-weight: 600;
+}
+
+.highlight-gold {
+  color: #FFD700;
+  font-weight: 700;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
+.delay-5 { animation-delay: 1.5s; }
+
+/* ==================== HERO SECTION ==================== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 80px 0;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 2px solid #FFD700;
+  color: #FFA500;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 10vw, 140px);
+  margin-bottom: 40px;
+}
+
+.title-line-1 {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+               0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.title-line-2 {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  margin-top: 20px;
+}
+
+.hero-subtitle {
+  font-size: clamp(20px, 3vw, 32px);
+  color: #ccc;
+  font-weight: 300;
+  margin-bottom: 60px;
+  line-height: 1.5;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.old-price-wrapper {
+  position: relative;
+}
+
+.old-price {
+  font-size: clamp(32px, 4vw, 48px);
+  color: #666;
+  text-decoration: line-through;
+}
+
+.off-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 48px;
+  height: 48px;
+  background: #DC2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  transform: rotate(12deg);
+  animation: pulse 2s infinite;
+}
+
+.new-price {
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.urgency-badge {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #DC2626;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  margin-bottom: 50px;
+  animation: pulse 2s infinite;
+}
+
+.cta-wrapper {
+  margin-bottom: 50px;
+}
+
+.btn-premium {
+  display: inline-block;
+  padding: 24px 64px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6);
+}
+
+.btn-premium:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.author {
+  font-size: clamp(18px, 2.5vw, 28px);
+  letter-spacing: 0.3em;
+  color: #999;
+  font-weight: 300;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFA500;
+  opacity: 0.7;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ==================== SOLID BACKGROUND ==================== */
+.solid-bg {
+  background: #000;
+}
+
+/* ==================== EBOOK SECTION ==================== */
+.ebook-section {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: #FFD700;
+  top: 80px;
+  left: 80px;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: #FFA500;
+  bottom: 80px;
+  right: 80px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: clamp(40px, 6vw, 80px);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.section-subtitle {
+  font-size: clamp(36px, 5vw, 70px);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+}
+
+.section-description {
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: #999;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.icon-card {
+  background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 60px 40px;
+  border-radius: 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.icon-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+}
+
+.icon-wrapper {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(6deg);
+  transition: transform 0.4s ease;
+}
+
+.icon-card:hover .icon-wrapper {
+  transform: rotate(0deg);
+}
+
+.icon-wrapper svg {
+  stroke: #000;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFA500;
+  margin-bottom: 20px;
+}
+
+.card-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #999;
+}
+
+/* ==================== GIANTS SECTION ==================== */
+.giants-section {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #000 0%, #111 50%, #000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.giants-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.giants-quote {
+  font-size: clamp(24px, 3vw, 36px);
+  color: #999;
+  font-style: italic;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.giants-title {
+  font-size: clamp(32px, 5vw, 64px);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+}
+
+.giants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.persona-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 24px;
+}
+
+.persona-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+  transition: left 0.7s;
+  z-index: 2;
+}
+
+.persona-card:hover::before {
+  left: 100%;
+}
+
+.persona-card:hover {
+  transform: scale(1.05);
+}
+
+.persona-image-wrapper {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 4px solid rgba(255, 215, 0, 0.3);
+  transition: border-color 0.4s ease;
+}
+
+.persona-card:hover .persona-image-wrapper {
+  border-color: #FFD700;
+}
+
+.persona-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: all 0.4s ease;
+}
+
+.einstein {
+  filter: grayscale(100%);
+}
+
+.persona-card:hover .persona-image {
+  opacity: 1;
+}
+
+.persona-card:hover .einstein {
+  filter: grayscale(0%);
+}
+
+.persona-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+  pointer-events: none;
+}
+
+.persona-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  text-align: center;
+  z-index: 1;
+}
+
+.persona-name {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.persona-subtitle {
+  font-size: clamp(16px, 2vw, 22px);
+  color: #FFA500;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.persona-quote-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.giants-footer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.giants-footer-text {
+  font-size: clamp(20px, 3vw, 32px);
+  color: #999;
+  line-height: 1.6;
+}
+
+/* ==================== SIGNUP SECTION ==================== */
+.signup-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.signup-bg-effect {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+}
+
+.signup-bg-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: #FFD700;
+  border-radius: 50%;
+  filter: blur(150px);
+}
+
+.signup-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.signup-title {
+  font-size: clamp(32px, 5vw, 64px);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.signup-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: #999;
+}
+
+.signup-form-wrapper {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  padding: 60px;
+  border-radius: 32px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.signup-form {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 18px 24px;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.form-input::placeholder {
+  color: #666;
+}
+
+.price-summary {
+  background: #000;
+  padding: 24px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.price-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.price-summary-label {
+  font-size: 18px;
+  color: #999;
+}
+
+.price-summary-value {
+  font-size: 40px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.price-summary-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 24px;
+  font-size: 20px;
+}
+
+.form-toggle {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #FFA500;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: #FFD700;
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+}
+
+.trust-icon {
+  font-size: 28px;
+}
+
+.trust-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  padding: 60px 0;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+}
+
+.footer-text {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-author {
+  color: #444;
+  font-size: 12px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .cards-grid,
+  .giants-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .signup-form-wrapper {
+    padding: 40px 30px;
+  }
+
+  .btn-premium {
+    padding: 20px 40px;
+  }
+
+  .icon-card {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge {
+    font-size: 10px;
+    padding: 10px 20px;
+  }
+
+  .price-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .signup-form-wrapper {
+    padding: 30px 20px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Parallax Background -->
+  <div class="parallax-bg"></div>
+  <div class="parallax-overlay"></div>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          
+          <!-- Badge -->
+          <div class="badge animate-fade-in-up">
+            ✨ EBOOK VIVO ✨
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="hero-title animate-fade-in-up delay-1">
+            <div class="title-line-1">O IMPOSTOR</div>
+            <div class="title-line-2">DENTRO DE VOCÊ</div>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-subtitle animate-fade-in-up delay-2">
+            Descubra a voz que sabota sua vida<br>
+            <span class="highlight">— e faça ela calar.</span>
+          </p>
+
+          <!-- Price -->
+          <div class="price-box animate-scale-in delay-3">
+            <div class="old-price-wrapper">
+              <span class="old-price">R$ 500</span>
+              <div class="off-badge">OFF</div>
+            </div>
+            <div class="new-price">R$ 60</div>
+          </div>
+
+          <!-- Urgency Badge -->
+          <div class="urgency-badge animate-fade-in-up delay-4">
+            ⚡ APENAS 100 VAGAS DISPONÍVEIS
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-wrapper animate-fade-in-up delay-5">
+            <a href="#cadastro" class="btn-premium">
+              QUERO TRANSFORMAR MINHA VIDA AGORA
+            </a>
+          </div>
+
+          <!-- Author -->
+          <p class="author animate-fade-in-up delay-5">
+            POR HENRIQUE SIQUEIRA
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==================== SOLID BLACK BACKGROUND ==================== -->
+    <div class="solid-bg">
+
+      <!-- ==================== EBOOK VIVO SECTION ==================== -->
+      <section class="ebook-section">
+        <div class="bg-effects">
+          <div class="bg-blob blob-1"></div>
+          <div class="bg-blob blob-2"></div>
+        </div>
+
+        <div class="container">
+          
+          <div class="section-header">
+            <h2 class="section-title">Não é um PDF comum.</h2>
+            <h3 class="section-subtitle">É uma EXPERIÊNCIA.</h3>
+            <p class="section-description">
+              O primeiro Ebook Vivo sobre Síndrome do Impostor do Brasil
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <div class="icon-card">
+              <div class="icon-wrapper">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <h4 class="card-title">Páginas Vivas</h4>
+              <p class="card-text">
+                Vire páginas como um livro real. Cada capítulo se revela com animações cinematográficas.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="icon-card">
+              <div class="icon-wrapper">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+              <h4 class="card-title">Vídeos Integrados</h4>
+              <p class="card-text">
+                Assista conteúdo exclusivo dentro do livro. Aprenda de forma multissensorial.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="icon-card">
+              <div class="icon-wrapper">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                </svg>
+              </div>
+              <h4 class="card-title">Narração Inteligente</h4>
+              <p class="card-text">
+                Cada palavra destacada enquanto é narrada. Como um filme para seus ouvidos.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== GIANTS SECTION ==================== -->
+      <section class="giants-section">
+        <div class="container">
+          
+          <div class="giants-header">
+            <p class="giants-quote">
+              "Até os gigantes duvidaram de si mesmos."
+            </p>
+            <h2 class="giants-title">
+              Inspirado em mentes brilhantes que<br>venceram o impostor interior
+            </h2>
+          </div>
+
+          <div class="giants-grid">
+            
+            <!-- Einstein -->
+            <div class="persona-card">
+              <div class="persona-image-wrapper">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" 
+                  alt="Albert Einstein"
+                  class="persona-image einstein"
+                >
+                <div class="persona-overlay"></div>
+              </div>
+              <div class="persona-info">
+                <h3 class="persona-name">EINSTEIN</h3>
+                <p class="persona-subtitle">Gênio que se sentia uma fraude</p>
+                <p class="persona-quote-text">
+                  "O exagero do meu valor é tão claro que me sinto culpado"
+                </p>
+              </div>
+            </div>
+
+            <!-- Michelle Obama -->
+            <div class="persona-card">
+              <div class="persona-image-wrapper">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Michelle_Obama_2013_official_portrait.jpg" 
+                  alt="Michelle Obama"
+                  class="persona-image"
+                >
+                <div class="persona-overlay"></div>
+              </div>
+              <div class="persona-info">
+                <h3 class="persona-name">MICHELLE</h3>
+                <p class="persona-subtitle">Primeira Dama que se achava "não boa o suficiente"</p>
+                <p class="persona-quote-text">
+                  "Ainda tenho um pouco daquela síndrome do impostor"
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="giants-footer">
+            <p class="giants-footer-text">
+              Se até eles enfrentaram essa batalha interna...<br>
+              <span class="highlight-gold">você não está sozinho.</span>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== CTA/SIGNUP SECTION ==================== -->
+      <section id="cadastro" class="signup-section">
+        <div class="signup-bg-effect"></div>
+
+        <div class="container">
+          <div class="signup-wrapper">
+            
+            <div class="signup-header">
+              <h2 class="signup-title" id="formTitle">Sua transformação começa aqui</h2>
+              <p class="signup-subtitle" id="formSubtitle">Garanta seu acesso por apenas R$ 60</p>
+            </div>
+
+            <div class="signup-form-wrapper">
+              
+              <form id="signupForm" class="signup-form">
+                
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="seu@email.com"
+                    required
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="password" class="form-label">Senha</label>
+                  <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-input" 
+                    placeholder="••••••••"
+                    required
+                    minlength="6"
+                  >
+                </div>
+
+                <div class="price-summary" id="priceSummary">
+                  <div class="price-summary-row">
+                    <span class="price-summary-label">Investimento único:</span>
+                    <span class="price-summary-value">R$ 60</span>
+                  </div>
+                  <div class="price-summary-features">
+                    <span>✓ Acesso vitalício</span>
+                    <span>✓ 12 capítulos</span>
+                    <span>✓ Vídeos exclusivos</span>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-premium btn-submit" id="submitBtn">
+                  GARANTIR MINHA VAGA POR R$ 60
+                </button>
+              </form>
+
+              <div class="form-toggle">
+                <button type="button" id="toggleFormBtn" class="toggle-btn">
+                  Já tenho conta →
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <span class="trust-icon">🔒</span>
+                <span class="trust-text">Pagamento Seguro</span>
+              </div>
+              <div class="trust-badge">
+                <span class="trust-icon">⚡</span>
+                <span class="trust-text">Acesso Imediato</span>
+              </div>
+              <div class="trust-badge">
+                <span class="trust-icon">💯</span>
+                <span class="trust-text">Satisfação Garantida</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="footer">
+        <div class="container">
+          <p class="footer-text">
+            © 2026 O Impostor Dentro de Você • Todos os direitos reservados
+          </p>
+          <p class="footer-author">
+            Henrique Siqueira
+          </p>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Inline -->
+  <script>
+// ==================== VARIABLES ====================
+const signupForm = document.getElementById('signupForm');
+const toggleFormBtn = document.getElementById('toggleFormBtn');
+const formTitle = document.getElementById('formTitle');
+const formSubtitle = document.getElementById('formSubtitle');
+const priceSummary = document.getElementById('priceSummary');
+const submitBtn = document.getElementById('submitBtn');
+
+let isLoginMode = false;
+
+// ==================== FORM TOGGLE ====================
+toggleFormBtn.addEventListener('click', () => {
+  isLoginMode = !isLoginMode;
+  
+  if (isLoginMode) {
+    formTitle.textContent = 'Bem-vindo de volta';
+    formSubtitle.textContent = 'Acesse seu Ebook Vivo';
+    priceSummary.style.display = 'none';
+    submitBtn.textContent = 'ACESSAR AGORA';
+    toggleFormBtn.textContent = '← Criar nova conta';
+  } else {
+    formTitle.textContent = 'Sua transformação começa aqui';
+    formSubtitle.textContent = 'Garanta seu acesso por apenas R$ 60';
+    priceSummary.style.display = 'block';
+    submitBtn.textContent = 'GARANTIR MINHA VAGA POR R$ 60';
+    toggleFormBtn.textContent = 'Já tenho conta →';
+  }
+});
+
+// ==================== FORM SUBMISSION ====================
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  
+  alert(`${isLoginMode ? 'Login' : 'Cadastro'} realizado!\n\nEmail: ${email}\n\nPróximo passo: Configure Firebase e PagBank`);
+});
+
+// ==================== SMOOTH SCROLL ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// ==================== PARALLAX EFFECT ====================
+const parallaxBg = document.querySelector('.parallax-bg');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop < window.innerHeight) {
+    parallaxBg.style.transform = `translateY(${scrollTop * 0.5}px)`;
+  }
+});
+
+// ==================== SCROLL ANIMATIONS ====================
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.icon-card, .persona-card').forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(30px)';
+  card.style.transition = 'all 0.6s ease-out';
+  observer.observe(card);
+});
+
+console.log('🔥 O Impostor Dentro de Você - Ebook Vivo');
+console.log('✅ Página carregada com sucesso!');
+  </script>
+</body>
+</html>
